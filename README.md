@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আরশাদ স্যারের বাংলা ব্যাচ</title>
+    <!-- সমস্ত CSS ফাইলটি এখানে <style> ট্যাগের মধ্যে যোগ করা হয়েছে -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: #3498db;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin-bottom: 5px;
+            font-size: 2.5em;
+            cursor: pointer; /* Added cursor pointer for navigation */
+        }
+
+        header p {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .container {
+            width: 90%; /* Changed to 90% for better mobile responsiveness */
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        /* Home Page Specific (Class Links) */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .class-item {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .class-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Adjusted the a tag style for class items to match the user's requested style */
+        .class-item a, .class-item p {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 1.5em;
+            font-weight: bold;
+            display: block;
+        }
+
+        /* Class Page Specific */
+        .note-section h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .note-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .note-list li {
+            background: #ffffff;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #2ecc71;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column; /* Changed for mobile stacking */
+            justify-content: space-between;
+            align-items: flex-start; /* Changed for mobile alignment */
+        }
+        @media (min-width: 640px) {
+            .note-list li {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .note-list li span {
+            color: #2c3e50;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        @media (min-width: 640px) {
+            .note-list li span {
+                margin-bottom: 0;
+            }
+        }
+        
+        .note-list .link-btn {
+            background-color: #2ecc71;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: background-color 0.2s;
+            text-align: center;
+            width: 100%; /* Full width on small screens */
+        }
+        @media (min-width: 640px) {
+            .note-list .link-btn {
+                width: auto;
+            }
+        }
+
+
+        .note-list .link-btn:hover {
+            background-color: #27ae60;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header>
+        <h1 onclick="loadHome()">আরশাদ স্যারের বাংলা ব্যাচ</h1>
+        <p>দাগাতে নয় শেখাতে চাই</p>
+    </header>
+
+    <div class="container flex-grow">
+        <!-- Dynamic content will load here -->
+        <div id="content-area"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 আরশাদ স্যারের বাংলা ব্যাচ</p>
+    </footer>
+
+    <script>
+        const contentArea = document.getElementById('content-area');
+        
+        // --- Data for Class 11 Notes (from class11.html) ---
+        const class11Notes = [
+            { title: "বাঙ্গালার নব্য লেখকদিগের প্রতি নিবেদন", link: "https://drive.google.com/file/d/1QR22pevVgtkMQtB0vYxr_Cnsl4_RkpMm/view?usp=drive_link" },
+            { title: "Banan Sheet.pdf (বানান তালিকা)", link: "https://drive.google.com/file/d/18iBTOeWL9EzBeJxS7U_9pIsO3ae3Il2Q/view?usp=drive_link" },
+            { title: "বিদ্রোহী কবিতা", link: "https://drive.google.com/file/d/17BykVlfomWgR0CWNMFBuA07tfa72V2Q5/view?usp=drive_link" },
+            { title: "বিলাসী গল্প", link: "https://drive.google.com/file/d/1pJgJ6KDR2IbdRSd3xXbhwgPxCX2CEKCU/view?usp=drive_link" },
+            { title: "বিভীষণের প্রতি মেঘনাদ", link: "https://drive.google.com/file/d/1InjatvLItsrqKCldpx8goSNO94nNeeMH/view?usp=drive_link" },
+            { title: "অপরিচিতা", link: "https://drive.google.com/file/d/1jOwt57te7cP69n2_xSc6CEifyMPnlObV/view?usp=drive_link" },
+        ];
+
+
+        // --- Page Rendering Functions ---
+
+        function loadHome() {
+            document.title = "আরশাদ স্যারের বাংলা ব্যাচ";
+            contentArea.innerHTML = `
+                <h2>ক্লাসসমূহ</h2>
+                <div class="class-grid">
+                    
+                    <div class="class-item">
+                        <a href="#" onclick="return false;">ক্লাস ৮</a>
+                    </div>
+                    
+                    <div class="class-item">
+                        <a href="#" onclick="return false;">ক্লাস ৯</a>
+                    </div>
+                    
+                    <div class="class-item">
+                        <a href="#" onclick="return false;">ক্লাস ১০</a>
+                    </div>
+
+                    <div class="class-item">
+                        <p onclick="loadClass11()" style="cursor: pointer;">ক্লাস ১১ (বাংলা)</p>
+                    </div>
+
+                    <div class="class-item">
+                        <a href="#" onclick="return false;">ক্লাস ১২</a>
+                    </div>
+                    
+                </div>
+            `;
+        }
+
+        function loadClass11() {
+            document.title = "ক্লাস ১১ বাংলা নোটস - আরশাদ স্যারের বাংলা ব্যাচ";
+            const notesHtml = class11Notes.map(note => `
+                <li>
+                    <span>${note.title}</span>
+                    <a href="${note.link}" target="_blank" class="link-btn">PDF দেখুন</a>
+                </li>
+            `).join('');
+
+            contentArea.innerHTML = `
+                <p><a href="#" onclick="loadHome(); return false;" style="color: #3498db; text-decoration: none;">&larr; হোমপেজে ফিরে যান</a></p>
+
+                <div class="note-section">
+                    <h2>📚 ক্লাস ১১: বাংলা - বিষয়ভিত্তিক নোটস</h2>
+                    <ul class="note-list">
+                        ${notesHtml}
+                    </ul>
+                </div>
+            `;
+        }
+
+        // Initial load
+        loadHome();
+    </script>
+</body>
+</html>
